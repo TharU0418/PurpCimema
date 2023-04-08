@@ -1,0 +1,30 @@
+import React from 'react'
+import 'bootstrap/dist/css/bootstrap.css';
+import Carousel from 'react-bootstrap/Carousel';
+
+function CarouselContainer() {
+  return (
+    <div style={{display: 'block', width: '100%', padding: 30 }}>
+    <Carousel>
+        <Carousel.Item interval={1000}>
+            <img
+            className="d-block w-100"
+            src="https://movies.sterkinekor.co.za/CDN/media/entity/get/FilmTitleGraphic/HO00002597?referenceScheme=HeadOffice&allowPlaceHolder=true"
+            alt="Image One"
+            />
+            <Carousel.Caption>
+                <h2>Ant Man 3 Quantumania</h2>
+            </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item interval={1000} >
+            <img className="d-block w-100" src="https://www.carscoops.com/wp-content/uploads/2023/01/Fast-X-a.jpg" alt="Image One" style={{height: '40%'}}/>
+            <Carousel.Caption>
+                <h2>Fast X</h2>
+            </Carousel.Caption>
+        </Carousel.Item>
+    </Carousel>
+</div>
+  )
+}
+
+export default CarouselContainer
