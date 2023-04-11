@@ -1,12 +1,11 @@
 import CarouselContainer from "../components/CarouselContainer";
-import NavBar from "../components/NavBar";
 import {Container, Row, Col, Button} from 'react-bootstrap';  
 
 function Home() {
 
     return(
         <div>
-            <NavBar />
+            
             <CarouselContainer/> 
             <Container
                 style={{

@@ -7,3 +7,28 @@
   color: white;
   font-size: 28px;
 }
+.Movie-Page{
+  margin-top: 10px;
+}
+.Movie-Page .movie-palet{
+  background-color: rgb(223, 172, 237);
+  width: 34%;
+  height: 580px;
+  padding: 10px;
+  margin-right:10px
+}
+.Movie-Page .image{
+  width: 100%;
+  height: 100%;
+}
+.add{
+  position: fixed;
+  top: 90%;
+  right: 50%;
+}
+.addmovie-container{
+  margin-top: 40px;
+  margin:0;
+  text-align: center;
+  justify-content:center;
+}
