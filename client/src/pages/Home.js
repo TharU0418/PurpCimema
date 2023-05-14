@@ -1,7 +1,28 @@
+import React, { useEffect, useState } from 'react'
 import CarouselContainer from "../components/CarouselContainer";
 import {Container, Row, Col, Button} from 'react-bootstrap';  
+import { useLocation, useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
 function Home() {
+
+    
+    const[data, setData] = useState([])
+
+    useEffect(() => {
+        fetchData();
+      }, []);
+    
+      const fetchData = async () => {
+        try{
+          const response = await axios.get("http://localhost:8000/AddMovie");
+          console.log(response.data)
+          setData(response.data);
+        }catch(error){
+          console.log(error);
+        }
+      };
+
 
     return(
         <div>
@@ -66,167 +87,118 @@ function Home() {
                     marginBottom:'40px'
                 }}>
                     <h4 style={{backgroundColor:'black', color:"white", width:'100%', height:'10%', padding:"10px", textAlign:'center'}}>Disney</h4>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
+                    <Col style={{
+                        display:'flex',
+                        
+                    }}>
+                        
+                            {data.map(item => {
+                                if (item.production === 'Disney') {
+                                return (
+                                    <div className="poster-container" style={{backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
+                                        <React.Fragment key={item.id}>
+                                        <div>{item.name}</div>
+                                        <div className='poster'>
+                                            <img src={item.poster} alt={item.name} />
+                                        </div>
+                                        </React.Fragment>
+                                    </div>
+                                );
+                                } else {
+                                return null; // or any other fallback if you don't want to render anything
+                                }
+                            })}
+                        
                     </Col>
                 </Row>
                 <Row>
                     <h4 style={{backgroundColor:'black', color:"white", width:'100%', height:'10%', padding:"10px", textAlign:'center'}}>Nteflix</h4>
                     <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
+                            {data.map(item => {
+                                if (item.production === 'Netflix') {
+                                return (
+                                    <div className="poster-container" style={{ backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
+                                    <React.Fragment key={item.id}>
+                                    <div>{item.name}</div>
+                                    <div className='poster'>
+                                        <img src={item.poster} alt={item.name}/>
+                                    </div>
+                                    </React.Fragment>
+                                    </div>
+                                );
+                                } else {
+                                return null; // or any other fallback if you don't want to render anything
+                                }
+                            })}
                     </Col>
                 </Row>
                 <Row>
                     <h4 style={{backgroundColor:'black', color:"white", width:'100%', height:'10%', padding:"10px", textAlign:'center'}}>Amozen Prime</h4>
                     <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
+                            {data.map(item => {
+                                if (item.production === 'Amozen Prime') {
+                                return (
+                                    <div className="poster-container" style={{ width: '100%', height: '100%', backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
+
+                                    <React.Fragment key={item.id}>
+                                    <div>{item.name}</div>
+                                    <div className='poster'>
+                                        <img src={item.poster} alt={item.name} />
+                                    </div>
+                                    </React.Fragment>
+                                    </div>
+                                );
+                                } else {
+                                return null; // or any other fallback if you don't want to render anything
+                                }
+                            })}
+                        
                     </Col>
                 </Row>
                 <Row>
                     <h4 style={{backgroundColor:'black', color:"white", width:'100%', height:'10%', padding:"10px", textAlign:'center'}}>Marvel</h4>
                     <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
+                            {data.map(item => {
+                                if (item.production === 'Marvel') {
+                                return (
+                                    <div className="poster-container" style={{ width: '100%', height: '100%', backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
+
+                                    <React.Fragment key={item.id}>
+                                    <div>{item.name}</div>
+                                    <div className='poster'>
+                                        <img src={item.poster} alt={item.name} />
+                                    </div>
+                                    </React.Fragment>
+                                    </div>
+                                );
+                                } else {
+                                return null; // or any other fallback if you don't want to render anything
+                                }
+                            })}
+                        
                     </Col>
                 </Row>
                 <Row>
                     <h4 style={{backgroundColor:'black', color:"white", width:'100%', height:'10%', padding:"10px", textAlign:'center'}}>DC</h4>
                     <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF', textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div className="poster-container" style={{width:'100%',height:'100%', backgroundColor:'#BE7DFF',  textAlign:'center', justifyContent:'center'}}>
-                            <h4>Avenger End Game</h4>
-                            <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810" style={{width:'100%',height:'88%'}}/>
-                        </div>
+                            {data.map(item => {
+                                if (item.production === 'DC') {
+                                return (
+                                    <div className="poster-container" style={{ width: '100%', height: '100%', backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
+
+                                    <React.Fragment key={item.id}>
+                                    <div>{item.name}</div>
+                                    <div className='poster'>
+                                        <img src={item.poster} alt={item.name} />
+                                    </div>
+                                    </React.Fragment>
+                                    </div>
+                                );
+                                } else {
+                                return null; // or any other fallback if you don't want to render anything
+                                }
+                            })}
+                        
                     </Col>
                 </Row>
             </Container>

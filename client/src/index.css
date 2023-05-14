@@ -7,20 +7,50 @@
   color: white;
   font-size: 28px;
 }
+
+/*  Movie Page  */
+
 .Movie-Page{
   margin-top: 10px;
 }
 .Movie-Page .movie-palet{
   background-color: rgb(223, 172, 237);
-  width: 34%;
-  height: 580px;
+  width: 48%;
+  height: 480px;
   padding: 10px;
-  margin-right:10px
+  margin-bottom:50px;
+  margin-left: 20px;
 }
-.Movie-Page .image{
+
+.movie-palet .top-side{
+  background-color: rgb(78, 0, 104);
+  color:white;
+  display: flex;
+  justify-content: space-between;
+  margin: none;
+  padding: 4px;
+  margin-bottom: 4px;
+}
+.movie-palet .middle-side{
+  display: flex;
+  flex-direction: row;
+}
+.movie-palet .middle-side .poster{
+  width: 50%;
+  margin-left: 4px;
+}
+.poster img{
   width: 100%;
-  height: 100%;
+  height: 400px;
 }
+.middle-side .description{
+  background-color: antiquewhite;
+  width: 50%;
+}
+
+
+
+
 .add{
   position: fixed;
   top: 90%;
@@ -31,4 +61,17 @@
   margin:0;
   text-align: center;
   justify-content:center;
+}
+
+
+
+/*  Home  */
+.home-poster .poster-container{
+  width: 200px;
+  height: 200px;
+  margin-left: 20px;
+}
+.home-poster .poster-container img{
+  width: 100%;
+  height: 80%;
 }

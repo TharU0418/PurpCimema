@@ -1,22 +1,79 @@
-const dotenv = require("dotenv");
-const mongoose = require("mongoose");
-
-dotenv.config();
-
-const express = require("express");
-const app = express();
-
+const express = require("express")
+const collection = require("./mongo")
+const cors = require("cors")
+const { default: mongoose } = require("mongoose")
+const app = express()
+app.use(express.json())
 app.use(express.urlencoded({ extended:true}))
-// use 'use' method to handle requests for static files in the "public" directory
-app.use("/static", express.static("public"));
-app.set("View engine", "js")
+app.use(cors())
 
-app.get('/', (req, res) => {
- res.render('AddMovie.js');
+
+
+app.post('/AddMovie', async(req, res) => {
+    const{letter,name,year,production,category,poster,description,wstatus,myrank} = req.body
+
+    const data = {
+        letter:letter,
+        name:name,
+        year:year,
+        production:production,
+        category:category,
+        poster:poster,
+        description:description,
+        wstatus:wstatus,
+        myrank:myrank
+    }
+
+    try{
+        const check = await collection.findOne({name:name})
+
+        if(check){
+            res.json("exist")
+        }else{
+            res.json("noteexist")
+            await collection.insertMany([data])
+        }
+    }catch(e){
+        res.json("notexist")
+    }
+
 });
 
-app.post('/', (req, res) => {
-    console.log(req.body)
+app.get('/AddMovie', async(req, res) => {
+    const{letter,name,year,production,category,poster,description,wstatus,myrank} = req.body
+
+    try{
+        const data = await collection.find()
+        res.json(data)
+    }catch(error){
+        console.log(error)
+        res.status(8000).json({error:'Internal Server Error'})
+    }
+
 });
 
-app.listen(3000, () => console.log("Server Up and running"));
+// const dataSchema = new mongoose.Schema({
+//     letter:String,
+//     name:String,
+//     year:String,
+//     production:String,
+//     category:String,
+//     poster:String,
+//     description:String,
+//     wstatus:String,
+//     myrank:String
+// });
+
+// const DataModel = mongoose.model('Data', dataSchema )
+
+// app.get('/AddMovie', async(req, res) => {
+//     try{
+//         const data = await DataModel.find();
+//         res.json(data)
+//     }catch(error){
+//         console.log(error);
+//         res.json(8000).json({error:'Internal Server Error'});
+//     }
+// });
+
+app.listen(8000, () => console.log("Server Up and running"));
