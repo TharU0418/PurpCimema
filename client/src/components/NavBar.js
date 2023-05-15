@@ -25,7 +25,7 @@ function NavBar() {
                 <Navbar.Collapse id='basic-navbar-nav'>
                     <Nav>
                         <Nav.Link href='/' style={{color:"white"}}>HOME</Nav.Link>
-                        <Nav.Link style={{color:"white"}}>SEARCH</Nav.Link>
+                        <Nav.Link href='SearchPage' style={{color:"white"}}>SEARCH</Nav.Link>
                         <Nav.Link style={{color:"white"}}>RANK</Nav.Link>
                         <Nav.Link href='Movie' style={{color:"white"}}>MOVIE</Nav.Link>
                         <Nav.Link style={{color:"white"}}>TV SERIES</Nav.Link>

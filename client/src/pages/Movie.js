@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom'
 import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import SearchBar from '../components/SearchBar';
 
 
 function Movie() {
@@ -38,6 +39,8 @@ function Movie() {
 
   return (
     <div className='Movie-Page'>
+
+      <SearchBar />
 
       <Container style={{
         display:'flex',
