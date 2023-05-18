@@ -111,9 +111,13 @@ function Home() {
                         
                     </Col>
                 </Row>
-                <Row>
+                <Row style={{
+                    marginBottom:'40px'
+                }}>
                     <h4 style={{backgroundColor:'black', color:"white", width:'100%', height:'10%', padding:"10px", textAlign:'center'}}>Nteflix</h4>
-                    <Col>
+                    <Col style={{
+                        display:'flex'
+                    }}>
                             {data.map(item => {
                                 if (item.production === 'Netflix') {
                                 return (
@@ -132,9 +136,13 @@ function Home() {
                             })}
                     </Col>
                 </Row>
-                <Row>
+                <Row style={{
+                    marginBottom:'40px'
+                }}>
                     <h4 style={{backgroundColor:'black', color:"white", width:'100%', height:'10%', padding:"10px", textAlign:'center'}}>Amozen Prime</h4>
-                    <Col>
+                    <Col style={{
+                        display:'flex'
+                    }}>
                             {data.map(item => {
                                 if (item.production === 'Amozen Prime') {
                                 return (
@@ -155,9 +163,13 @@ function Home() {
                         
                     </Col>
                 </Row>
-                <Row>
+                <Row style={{
+                    marginBottom:'40px'
+                }}>
                     <h4 style={{backgroundColor:'black', color:"white", width:'100%', height:'10%', padding:"10px", textAlign:'center'}}>Marvel</h4>
-                    <Col>
+                    <Col style={{
+                        display:'flex'
+                    }}>
                             {data.map(item => {
                                 if (item.production === 'Marvel') {
                                 return (
@@ -178,9 +190,13 @@ function Home() {
                         
                     </Col>
                 </Row>
-                <Row>
+                <Row style={{
+                    marginBottom:'40px'
+                }}>
                     <h4 style={{backgroundColor:'black', color:"white", width:'100%', height:'10%', padding:"10px", textAlign:'center'}}>DC</h4>
-                    <Col>
+                    <Col style={{
+                        display:'flex'
+                    }}>
                             {data.map(item => {
                                 if (item.production === 'DC') {
                                 return (

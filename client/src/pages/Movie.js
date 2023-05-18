@@ -7,19 +7,11 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import SearchBar from '../components/SearchBar';
 
-
 function Movie() {
   const location = useLocation()
 
-  const[letter, setLetter] = useState('')
-  const[name, setName] = useState('')
-  const[year, setYear] = useState('')
-  const[production, setProduction] = useState('')
-  const[category, setCategory] = useState('')
-  const[poster, setPoster] = useState('')
-  const[description, setDescrip] = useState('')
-  const[wstatus, setWStatus] = useState('')
-  const[myrank, setMyrank] = useState('')
+  const navigate = useNavigate;
+
 
   const[data, setData] = useState([])
 
@@ -36,6 +28,15 @@ function Movie() {
       console.log(error);
     }
   };
+
+  const handleUpdateButton = async (event) => {
+    event.preventDefault();
+    try{
+      navigate("/AddMovie")
+    }catch(error){
+      console.log(error)
+    }
+  }
 
   return (
     <div className='Movie-Page'>
@@ -62,10 +63,11 @@ function Movie() {
               <img src={item.poster}/>
             </div>
             <div className='description'>
-              <div key={item.id}>{item.category}</div>
-              <div key={item.id}>{item.production}</div>
-              <div key={item.id}>{item.description}</div>
-              <div key={item.id}>{item.myrank}</div>
+              <div key={item.id}>Movie Category : {item.category}</div>
+              <div key={item.id}>Movie Production :{item.production}</div>
+              <div key={item.id}>Movie Description :{item.description}</div>
+              <div key={item.id}>Movie Rank :{item.myrank}</div>
+              
             </div>
 
           </div>
@@ -117,9 +119,10 @@ function Movie() {
                 </Link>
             </div>
         
-      
-      
-        
+            
+            <form onSubmit={handleUpdateButton}>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   )
 }

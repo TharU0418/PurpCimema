@@ -16,7 +16,7 @@ function NavBar() {
     <div style={{
         display:"flex",
         justifyContent:"space-between",
-        backgroundColor:"purple",
+        fontSize:"16px"
     }}>
         <div className='logo'>PurpNight</div>
         <div>

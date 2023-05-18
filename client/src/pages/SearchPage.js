@@ -61,7 +61,9 @@ function SearchPage() {
       
 
     return(
-        <div>
+        <div className='search-page'>
+            <div className='search-container'>
+            <div className='search-bar'>
             <form onSubmit={handleSearch}>
                 <input 
                     type="text"
@@ -73,7 +75,7 @@ function SearchPage() {
 
                
             </form>
-
+</div>
             <form onSubmit={handleSelect}>
                  {/* Dropdown */}
                  <select value={selectedValue} onChange={handleSelect}>
@@ -99,16 +101,30 @@ function SearchPage() {
                     ))}
                 </select>
             </form>
+            </div>
 
             {Array.isArray(dropresults) && dropresults.length > 0 ? (
                 dropresults.map((item) => {
                     if (item.wstatus === selectedValue || item.category === selectedValue2 || item.year === selectedValue3) {
                     return (
                         <React.Fragment key={item.id}>
-                        <div>{item.name}</div>
-                        <div className='poster'>
-                            <img src={item.poster} alt={item.name} />
-                        </div>
+                            <div className='movie-palet'>
+                                <div className='top-side'>
+                                    <div>{item.name}</div>
+                                    <div>{item.year}</div>
+                                </div>
+                                <div className='middle-side'>
+                                    <div className='poster'>
+                                    <img src={item.poster} alt={item.name} />
+                                    </div>
+                                    <div className='description'>
+                                        <div>{item.category}</div>
+                                        <div>{item.production}</div>
+                                        <div>{item.description}</div>
+                                        <div>{item.myrank}</div>
+                                    </div>
+                                </div>
+                            </div>
                         </React.Fragment>
                     );
                     } else {
