@@ -62,62 +62,63 @@ function SearchPage() {
 
     return(
         <div className='search-page'>
+            {/* search container bar */}
             <div className='search-container'>
-            <div className='search-bar'>
-            <form onSubmit={handleSearch}>
-                <input 
-                    type="text"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    placeholder="search"
-                />
-                <button type="submit">🔍</button>
+                <div className='search-bar'>
+                <form onSubmit={handleSearch}>
+                    <input 
+                        type="text"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        placeholder="search"
+                    />
+                    <button type="submit">🔍</button>
+                </form>
+                </div>
+                <form onSubmit={handleSelect}>
+                    {/* Dropdown */}
+                    <select value={selectedValue} onChange={handleSelect} className='dropdown'>
+                        <option value="">Watch</option>
+                        {options.map((option) => (
+                            <option key={option} value={option}>{option}</option>
+                        ))}
+                    </select>
 
-               
-            </form>
-</div>
-            <form onSubmit={handleSelect}>
-                 {/* Dropdown */}
-                 <select value={selectedValue} onChange={handleSelect}>
-                    <option value="">Watch</option>
-                    {options.map((option) => (
-                        <option key={option} value={option}>{option}</option>
-                    ))}
-                </select>
+                    {/* Dropdown 2*/}
+                    <select value={selectedValue2} onChange={handleSelect} className='dropdown'>
+                        <option value="">Category</option>
+                        {options2.map((option) => (
+                            <option key={option} value={option}>{option}</option>
+                        ))}
+                    </select>
 
-                {/* Dropdown 2*/}
-                <select value={selectedValue2} onChange={handleSelect}>
-                    <option value="">Category</option>
-                    {options2.map((option) => (
-                        <option key={option} value={option}>{option}</option>
-                    ))}
-                </select>
-
-                {/* Dropdown 3*/}
-                <select value={selectedValue3} onChange={handleSelect}>
-                    <option value="">Year</option>
-                    {options3.map((option) => (
-                        <option key={option} value={option}>{option}</option>
-                    ))}
-                </select>
-            </form>
+                    {/* Dropdown 3*/}
+                    <select value={selectedValue3} onChange={handleSelect} className='dropdown'>
+                        <option value="">Year</option>
+                        {options3.map((option) => (
+                            <option key={option} value={option}>{option}</option>
+                        ))}
+                    </select>
+                </form>
             </div>
+
+            {/* search results */}
 
             {Array.isArray(dropresults) && dropresults.length > 0 ? (
                 dropresults.map((item) => {
                     if (item.wstatus === selectedValue || item.category === selectedValue2 || item.year === selectedValue3) {
                     return (
                         <React.Fragment key={item.id}>
-                            <div className='movie-palet'>
-                                <div className='top-side'>
+                            <div className='search-movie-palet'>
+                                <div className='search-top-side'>
                                     <div>{item.name}</div>
                                     <div>{item.year}</div>
                                 </div>
-                                <div className='middle-side'>
-                                    <div className='poster'>
+                                <div className='search-middle-side'>
+                                    <div className='search-poster'>
                                     <img src={item.poster} alt={item.name} />
                                     </div>
-                                    <div className='description'>
+                                    <div className='search-description'>
                                         <div>{item.category}</div>
                                         <div>{item.production}</div>
                                         <div>{item.description}</div>

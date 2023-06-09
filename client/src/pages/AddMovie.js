@@ -253,6 +253,7 @@ function AddMovie() {
       />
 
       <input type="submit" onClick={submit} />
+      <input type="submit"value='update' onClick={submit} />
     </form>
 
     </div>

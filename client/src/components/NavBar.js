@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {Nav, Navbar, Container, NavDropdown} from 'react-bootstrap';  
 import 'bootstrap/dist/css/bootstrap.min.css';  
+import logo from '../images/logo.png'
 
 function NavBar() {
   
@@ -18,7 +19,7 @@ function NavBar() {
         justifyContent:"space-between",
         fontSize:"16px"
     }}>
-        <div className='logo'>PurpNight</div>
+        <div className='logo'><img src={logo} width='100px' height='100px'/></div>
         <div>
             <Navbar expand="lg" >
                 <Navbar.Toggle aria-controls='basic-navbar-nav'/>

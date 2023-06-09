@@ -8,7 +8,7 @@ import axios from 'axios';
 import SearchBar from '../components/SearchBar';
 
 function Movie() {
-  const location = useLocation()
+  const history = useNavigate()
 
   const navigate = useNavigate;
 
@@ -29,13 +29,12 @@ function Movie() {
     }
   };
 
-  const handleUpdateButton = async (event) => {
-    event.preventDefault();
-    try{
-      navigate("/AddMovie")
-    }catch(error){
-      console.log(error)
-    }
+  const handleButtonClick =  (itemId) => {
+    
+    
+
+    console.log(data);
+    navigate(`/EditMovie/${itemId}`);
   }
 
   return (
@@ -67,12 +66,16 @@ function Movie() {
               <div key={item.id}>Movie Production :{item.production}</div>
               <div key={item.id}>Movie Description :{item.description}</div>
               <div key={item.id}>Movie Rank :{item.myrank}</div>
-              
             </div>
+        </div>  
+        
+          <Button
+  variant="primary"
+  type="submit"
+  onClick={() => handleButtonClick(item.id)}>
+  Update
+</Button>
 
-          </div>
-          
-          
         </div>
       ))} 
 
@@ -119,10 +122,7 @@ function Movie() {
                 </Link>
             </div>
         
-            
-            <form onSubmit={handleUpdateButton}>
-        <button type="submit">Submit</button>
-      </form>
+
     </div>
   )
 }

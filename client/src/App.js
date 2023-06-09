@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar";
 import AddMovie from "./pages/AddMovie";
 import SearchBar from "./components/SearchBar";
 import SearchPage from "./pages/SearchPage";
-import EditMovie from "./pages/EditMovie";
+import EditMovie from './pages/EditMovie'
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         <Route exact path="/AddMovie" element={<AddMovie />}/>
         <Route exact path="/SearchBar" element={<SearchBar />}/>
         <Route exact path="/SearchPage" element={<SearchPage />}/>
-        <Route exact path="/EditMovie" element={<EditMovie />} />
+        <Route exact path="/EditMovie/:itemId" element={<EditMovie />} />
       </Routes>
       </BrowserRouter>
     </div>

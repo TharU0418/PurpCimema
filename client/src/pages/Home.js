@@ -95,7 +95,7 @@ function Home() {
                             {data.map(item => {
                                 if (item.production === 'Disney') {
                                 return (
-                                    <div className="poster-container" style={{backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
+                                    <div className="poster-home" style={{backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
                                         <React.Fragment key={item.id}>
                                         <div>{item.name}</div>
                                         <div className='poster'>
@@ -121,7 +121,7 @@ function Home() {
                             {data.map(item => {
                                 if (item.production === 'Netflix') {
                                 return (
-                                    <div className="poster-container" style={{ backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
+                                    <div className="poster-home" style={{ backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
                                     <React.Fragment key={item.id}>
                                     <div>{item.name}</div>
                                     <div className='poster'>
@@ -146,7 +146,7 @@ function Home() {
                             {data.map(item => {
                                 if (item.production === 'Amozen Prime') {
                                 return (
-                                    <div className="poster-container" style={{ width: '100%', height: '100%', backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
+                                    <div className="poster-home" style={{ backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
 
                                     <React.Fragment key={item.id}>
                                     <div>{item.name}</div>
@@ -173,7 +173,7 @@ function Home() {
                             {data.map(item => {
                                 if (item.production === 'Marvel') {
                                 return (
-                                    <div className="poster-container" style={{ width: '100%', height: '100%', backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
+                                    <div className="poster-home" style={{ backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
 
                                     <React.Fragment key={item.id}>
                                     <div>{item.name}</div>
@@ -200,7 +200,7 @@ function Home() {
                             {data.map(item => {
                                 if (item.production === 'DC') {
                                 return (
-                                    <div className="poster-container" style={{ width: '100%', height: '100%', backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
+                                    <div className="poster-home" style={{ backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
 
                                     <React.Fragment key={item.id}>
                                     <div>{item.name}</div>

@@ -22,9 +22,15 @@ function CarouselContainer() {
                 <h2>Fast X</h2>
             </Carousel.Caption>
         </Carousel.Item>
+        <Carousel.Item interval={1000} >
+            <img className="d-block w-100" src="https://static1.moviewebimages.com/wordpress/wp-content/uploads/2023/05/jackie-chan-john-cena-in-hidden-strike.jpg" 
+              alt="Image One" style={{height: '40%'}}/>
+            <Carousel.Caption>
+                <h2>Hidden Strike </h2>
+            </Carousel.Caption>
+        </Carousel.Item>
     </Carousel>
 </div>
   )
 }
-
 export default CarouselContainer

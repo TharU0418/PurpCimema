@@ -104,16 +104,20 @@ body{
   margin-top: 60px;
 }
 .search-page .search-container{
-  background-color: rgb(72, 188, 153);
+  background-color: rgb(0, 0, 0);
   display: flex;
   justify-content: space-between;
+  width: 80%;
+  margin-left: 60px;
+  padding: 10px;
+  border-radius: 10px;
 }
 .search-bar{
   margin-left: 20px;
 }
 .search-bar input{
   border-radius: 10px;
-  width: 60%;
+  width: 600px;
   height:32px;
   border: 1px solid black;
   text-align: center;
@@ -124,8 +128,68 @@ body{
 
 }
 .search-bar button{
-  background-color: aquamarine;
+  background-color: rgb(255, 255, 255);
   padding: 4px;
   border-radius: 50%;
   font-size: 28px;
+}
+.dropdown {
+    /* Add desired styling properties */
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    /* Add more styles as needed */
+}
+.middle-side .poster img{
+  width: 80%;
+  height: 80%;
+}
+
+.search-movie-palet{
+  background-color: rgb(244, 194, 249);
+  width: 48%;
+  height: 420px;
+  padding: 10px;
+  margin:50px;
+  margin-left: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.search-movie-palet .search-top-side{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(80, 11, 94);
+  padding: 4px;
+  color: white;
+}
+.search-movie-palet .search-middle-side{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2px;
+}
+.search-middle-side .search-description{
+  background-color: rgb(0, 0, 0);
+  color: white;
+  width: 300px;
+}
+.search-poster img{
+  width: 96%;
+  height: 360px;
+}
+
+/*  HOME  */
+.poster-home{
+  width: 320px;
+  height: 400px;
+  margin-right: 20px;
+}
+.poster-home .poster img{
+  width: 80%;
+  height: 80%;
 }

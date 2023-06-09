@@ -52,6 +52,24 @@ app.get('/AddMovie', async(req, res) => {
 
 });
 
+
+app.put('http://localhost:8000/AddMovie${movieId}', async(req,res) => {
+    const { id } = req.params;
+    const updatedData = req.body;
+
+    try {
+        const result = await collection.updateOne({ _id: ObjectId(id) }, { $set: updatedData });
+        if (result.modifiedCount === 1) {
+          res.json('success');
+        } else {
+          res.json('failed');
+        }
+      } catch (e) {
+        res.status(500).json({ error: 'Internal server error' });
+      }
+
+})
+
 // const dataSchema = new mongoose.Schema({
 //     letter:String,
 //     name:String,
