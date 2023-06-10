@@ -53,13 +53,26 @@ app.get('/AddMovie', async(req, res) => {
 });
 
 
-app.put('http://localhost:8000/AddMovie${movieId}', async(req,res) => {
-    const { id } = req.params;
-    const updatedData = req.body;
+app.put('/AddMovie/:id', async(req,res) => {
+    const id  = req.params.id;
+    const {poster, description, wstatus, myrank} = req.body;
 
     try {
-        const result = await collection.updateOne({ _id: ObjectId(id) }, { $set: updatedData });
-        if (result.modifiedCount === 1) {
+        const check = await collection.findOne({ _id: id });
+
+        if (check) {
+            await collection.updateOne(
+                { _id: id},
+                {
+                    $set : {
+                        poster:poster,
+                        description:description,
+                        wstatus:wstatus,
+                        myrank:myrank
+                    }
+                }
+            );
+        
           res.json('success');
         } else {
           res.json('failed');

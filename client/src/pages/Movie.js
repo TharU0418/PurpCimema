@@ -8,10 +8,6 @@ import axios from 'axios';
 import SearchBar from '../components/SearchBar';
 
 function Movie() {
-  const history = useNavigate()
-
-  const navigate = useNavigate;
-
 
   const[data, setData] = useState([])
 
@@ -29,13 +25,21 @@ function Movie() {
     }
   };
 
-  const handleButtonClick =  (itemId) => {
-    
-    
+  // update
 
-    console.log(data);
-    navigate(`/EditMovie/${itemId}`);
+  const [selectedId, setSelectedId] = useState(null);
+
+  function handleButtonClick (item){
+    setSelectedId(item.id);
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
   }
+
+
+
+  //
 
   return (
     <div className='Movie-Page'>
@@ -69,12 +73,11 @@ function Movie() {
             </div>
         </div>  
         
-          <Button
-  variant="primary"
-  type="submit"
-  onClick={() => handleButtonClick(item.id)}>
-  Update
-</Button>
+    <Link to={`/UpdatePage?id=${item.name}`} onClick={handleButtonClick}>
+      <button>update</button>
+    </Link>
+
+    
 
         </div>
       ))} 
