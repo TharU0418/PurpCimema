@@ -8,8 +8,15 @@ function UpdatePage() {
     const locations = useLocation();
     const {id} = parse.parse(locations.search);
 
-    function submit(e){
+    const[poster, setPoster] = useState('')
+    const[description, setDescrip] = useState('')
+    const[wstatus, setWStatus] = useState('')
+    const[myrank, setMyrank] = useState('')
+
+    async function submit(e){
         e.preventDefault();
+
+        console.log(id)
 
         const updatedData = {
             poster: poster,
@@ -18,17 +25,14 @@ function UpdatePage() {
             myrank: myrank 
         };
             
-        axios.put(`/AddMovie/${id}`, updatedData)
-        .then((response) => console.log(response.data))
-        .catch((error) => console.log(error))
-
+        try{
+            await axios.put(`http://localhost:8000/AddPage/${id}`, updatedData)
+            console.log("Updated Successfully.")
+        }catch(error){
+            console.log(error)
+        }
 
     }
-
-    const[poster, setPoster] = useState('')
-    const[description, setDescrip] = useState('')
-    const[wstatus, setWStatus] = useState('')
-    const[myrank, setMyrank] = useState('')
 
   return (
     <div>

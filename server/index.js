@@ -7,6 +7,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended:true}))
 app.use(cors())
 
+const ObjectId = require('mongodb').ObjectId; // Import ObjectId from MongoDB package
 
 
 app.post('/AddMovie', async(req, res) => {
@@ -53,22 +54,24 @@ app.get('/AddMovie', async(req, res) => {
 });
 
 
-app.put('/AddMovie/:id', async(req,res) => {
+app.put('/AddPage/:id', async(req,res) => {
     const id  = req.params.id;
-    const {poster, description, wstatus, myrank} = req.body;
-
+    const updatedData = req.body;
+    console.log(id)
+    console.log(updatedData)
     try {
         const check = await collection.findOne({ _id: id });
+        console.log(check)
 
         if (check) {
             await collection.updateOne(
                 { _id: id},
                 {
                     $set : {
-                        poster:poster,
-                        description:description,
-                        wstatus:wstatus,
-                        myrank:myrank
+                        poster:updatedData.poster,
+                        description:updatedData.description,
+                        wstatus:updatedData.wstatus,
+                        myrank:updatedData.myrank
                     }
                 }
             );
