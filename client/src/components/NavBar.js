@@ -29,7 +29,7 @@ function NavBar() {
                         <Nav.Link href='SearchPage' style={{color:"white"}}>SEARCH</Nav.Link>
                         <Nav.Link style={{color:"white"}}>RANK</Nav.Link>
                         <Nav.Link href='Movie' style={{color:"white"}}>MOVIE</Nav.Link>
-                        <Nav.Link style={{color:"white"}}>TV SERIES</Nav.Link>
+                        <Nav.Link href='TVSeries' style={{color:"white"}}>TV SERIES</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

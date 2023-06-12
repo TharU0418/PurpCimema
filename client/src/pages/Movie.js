@@ -66,21 +66,15 @@ function Movie() {
               <img src={item.poster}/>
             </div>
             <div className='description'>
-            <div key={item.id}>ID: {item._id}</div>
               <div key={item.id}>Movie Category : {item.category}</div>
               <div key={item.id}>Movie Production :{item.production}</div>
               <div key={item.id}>Movie Description :{item.description}</div>
               <div key={item.id}>Movie Rank :{item.myrank}</div>
-              
+              <Link to={`/UpdatePage?id=${item._id}`} onClick={handleButtonClick}>
+              <i class="bi bi-pen" style={{marginLeft:'40px', backgroundColor:'white', borderRadius:'5px', padding:'5px'}}></i>
+              </Link>
             </div>
         </div>  
-        
-    <Link to={`/UpdatePage?id=${item._id}`} onClick={handleButtonClick}>
-      <button>update</button>
-    </Link>
-
-    
-
         </div>
       ))} 
 

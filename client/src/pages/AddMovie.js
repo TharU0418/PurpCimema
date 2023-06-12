@@ -32,7 +32,7 @@ function AddMovie() {
         }
       })
       .catch(e=>{
-        alert("wroung details")
+        alert("wrong details")
         console.log(e)
       })
     }catch(e){

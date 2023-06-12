@@ -1,5 +1,6 @@
 const express = require("express")
-const collection = require("./mongo")
+const {collection,tvdata} = require("./mongo")
+//const tvdata = require("./mongo")
 const cors = require("cors")
 const { default: mongoose } = require("mongoose")
 const app = express()
@@ -31,8 +32,8 @@ app.post('/AddMovie', async(req, res) => {
         if(check){
             res.json("exist")
         }else{
-            res.json("noteexist")
             await collection.insertMany([data])
+            res.json("noteexist")
         }
     }catch(e){
         res.json("notexist")
@@ -84,6 +85,49 @@ app.put('/AddPage/:id', async(req,res) => {
         res.status(500).json({ error: 'Internal server error' });
       }
 
+})
+
+app.post('/AddTvSeries', async(req, res) => {
+
+    const{letter,name,year,production,category,poster,description,wstatus,myrank} = req.body
+
+    const data = {
+        letter:letter,
+        name:name,
+        year:year,
+        production:production,
+        category:category,
+        poster:poster,
+        description:description,
+        wstatus:wstatus,
+        myrank:myrank
+    }
+
+    try{
+        const check = await tvdata.findOne({name:name})
+
+        if(check){
+            res.json("exist")
+        }else{
+            await tvdata.insertMany([data]);
+            res.json("noteexist")   
+        }
+    }catch(e){
+        res.json("notexist")
+    }
+
+});
+
+app.get('/AddTvSeries', async(req,res) => {
+    const{letter,name,year,production,category,poster,description,wstatus,myrank} = req.body
+
+    try{
+        const data = await tvdata.find()
+        res.json(data)
+    }catch(error){
+        console.log(error)
+        res.status(8000).json({error:"Internal Server Error"})
+    }
 })
 
 // const dataSchema = new mongoose.Schema({
