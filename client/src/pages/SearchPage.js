@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import SearchBar from '../components/SearchBar';
 
 function SearchPage() {
 
@@ -136,7 +137,37 @@ function SearchPage() {
                 <p>No results found.</p>
             )}
 
-            
+{Array.isArray(results) && results.length > 0 ? (
+          results.map((item) => {
+            if (item.name === query) {
+              return (
+                <React.Fragment key={item.id}>
+                  <div className='search-movie-palet'>
+                      <div className='search-top-side'>
+                        <div>{item.name}</div>
+                        <div>{item.year}</div>
+                      </div>
+                        <div className='search-middle-side'>
+                          <div className='search-poster'>
+                            <img src={item.poster} alt={item.name} />
+                          </div>
+                          <div className='search-description'>
+                            <div>{item.category}</div>
+                              <div>{item.production}</div>
+                              <div>{item.description}</div>
+                              <div>{item.myrank}</div>
+                          </div>
+                        </div>
+                    </div>
+                </React.Fragment>
+              );
+            } else {
+              return null; // or any other fallback if you don't want to render anything
+            }
+          })
+          ) : (
+          <p>No results found.</p>
+          )}
             
         </div>
     )

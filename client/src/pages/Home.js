@@ -3,6 +3,7 @@ import CarouselContainer from "../components/CarouselContainer";
 import {Container, Row, Col, Button} from 'react-bootstrap';  
 import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import Blob from '../components/Blob'
 
 function Home() {
 
@@ -26,7 +27,6 @@ function Home() {
 
     return(
         <div>
-            
             <CarouselContainer/> 
             <Container
                 style={{

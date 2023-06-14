@@ -10,11 +10,22 @@ import UpdateMovie from './pages/UpdateMovie'
 import UpdatePage from './pages/UpdatePage'
 import AddTvSeries from './pages/AddTvSeries'
 import TVSeries from './pages/TVSeries'
+import Blob from './components/Blob'
 
 function App() {
   return (
     <div className="App">
       <NavBar />
+      <div className="background">
+      <Blob/>
+      <Blob/>
+      <Blob/>
+      <Blob/>
+      <Blob/>
+      <Blob/>
+      <Blob/>
+      </div>
+      <div className="content">
       <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Home/>}/>
@@ -29,8 +40,10 @@ function App() {
         <Route exact path="/UpdatePage" element={<UpdatePage/>} />
         <Route exact path="/AddTvSeries" element={<AddTvSeries/>} />
         <Route exact path ="/TVSeries" element={<TVSeries/>} />
+        <Route exact path = "/Blob" element={<Blob/>} />
       </Routes>
       </BrowserRouter>
+      </div>
     </div>
   );
 }

@@ -5,7 +5,13 @@
   
 }
 body{
-  background-image:url('./images/purple.png')
+  /* background-image:url('./images/purple.png') */
+}
+body .react-bubbly-transitions__bubbly-link {
+  color: #af44fd;
+}
+body .react-bubbly-transitions__bubbly-link.active {
+  text-decoration: underline;
 }
 .logo{
   color: white;
@@ -193,4 +199,82 @@ body{
 .poster-home .poster img{
   width: 80%;
   height: 80%;
+}
+
+
+/*  Blob  */
+.blob {
+  background-color: #670a95;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  animation: blobAnimation 5s infinite;
+}
+
+.blob:nth-of-type(2) {
+  width: 150px;
+  height: 150px;
+  top: 100%;
+  left: 0%;
+}
+.blob:nth-of-type(3) {
+  width: 150px;
+  height: 150px;
+  top: 0%;
+  left: 10%;
+}
+.blob:nth-of-type(4) {
+  width: 150px;
+  height: 150px;
+  top: 80%;
+  left: 80%;
+}
+.blob:nth-of-type(5) {
+  width: 150px;
+  height: 150px;
+  top: 0%;
+  left: 100%;
+}
+.blob:nth-of-type(6) {
+  width: 150px;
+  height: 150px;
+  top: 60%;
+  left: 24%;
+}
+.blob:nth-of-type(6) {
+  width: 150px;
+  height: 150px;
+  top: 20%;
+  left: 70%;
+}
+
+@keyframes blobAnimation {
+  0% {
+    width: 200px;
+    height: 200px;
+  }
+  50% {
+    width: 240px;
+    height: 240px;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+  }
+}
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.content {
+  position: relative;
+  z-index: 1;
 }

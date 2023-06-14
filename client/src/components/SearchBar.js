@@ -36,23 +36,36 @@ function SearchBar() {
 
     
         {Array.isArray(results) && results.length > 0 ? (
-  results.map((item) => {
-    if (item.name === query) {
-      return (
-        <React.Fragment key={item.id}>
-          <div>{item.name}</div>
-          <div className='poster'>
-            <img src={item.poster} alt={item.name} />
-          </div>
-        </React.Fragment>
-      );
-    } else {
-      return null; // or any other fallback if you don't want to render anything
-    }
-  })
-) : (
-  <p>No results found.</p>
-)}
+          results.map((item) => {
+            if (item.name === query) {
+              return (
+                <React.Fragment key={item.id}>
+                  <div className='search-movie-palet'>
+                      <div className='search-top-side'>
+                        <div>{item.name}</div>
+                        <div>{item.year}</div>
+                      </div>
+                        <div className='search-middle-side'>
+                          <div className='search-poster'>
+                            <img src={item.poster} alt={item.name} />
+                          </div>
+                          <div className='search-description'>
+                            <div>{item.category}</div>
+                              <div>{item.production}</div>
+                              <div>{item.description}</div>
+                              <div>{item.myrank}</div>
+                          </div>
+                        </div>
+                    </div>
+                </React.Fragment>
+              );
+            } else {
+              return null; // or any other fallback if you don't want to render anything
+            }
+          })
+          ) : (
+          <p>No results found.</p>
+          )}
    
        
 
