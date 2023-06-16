@@ -21,7 +21,7 @@ function AddMovie() {
     e.preventDefault();
 
     try{
-      await axios.post("http://localhost:8000/AddMovie", {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/AddMovie`, {
         letter,name,year,production,category,poster,description,wstatus,myrank
       })
       .then(res=>{
