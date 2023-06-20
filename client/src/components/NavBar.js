@@ -34,6 +34,9 @@ function NavBar() {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
+            
+            
+
         </div>
     </div>
 

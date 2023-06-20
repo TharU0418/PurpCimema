@@ -7,6 +7,10 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import SearchBar from '../components/SearchBar';
 
+import IconButton from '@mui/material/IconButton';
+import ArrowBack from '@mui/icons-material/ArrowBack';
+import ArrowForward from '@mui/icons-material/ArrowForward';
+
 function Movie() {
 
   const[data, setData] = useState([])
@@ -17,7 +21,7 @@ function Movie() {
 
   const fetchData = async () => {
     try{
-      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/AddMovie`);
+      const response = await axios.get('http://localhost:8000/AddMovie');
       console.log(response.data)
       setData(response.data);
     }catch(error){
@@ -41,6 +45,18 @@ function Movie() {
 
   //
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  const goToNextPage = () => {
+    setCurrentPage(prevPage => prevPage + 1)
+  }
+
+  const goToPreviousPage = () => {
+    setCurrentPage(prevPage => prevPage - 1)
+  }
+
   return (
     <div className='Movie-Page'>
 
@@ -55,7 +71,9 @@ function Movie() {
 
         <Row>
       
-      {data.map(item => (
+      {data
+      .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+      .map(item => (
         <div className='movie-palet'>
           <div className='top-side'>
             <div key={item.id}>{item.name}</div>
@@ -77,6 +95,19 @@ function Movie() {
         </div>  
         </div>
       ))} 
+      <div className='arraow-button-container'>
+      
+      <IconButton aria-label="delete" disabled={currentPage === 1} onClick={goToPreviousPage} color="primary">
+        <ArrowBack />
+      </IconButton>
+        <span>{currentPage}</span>
+        <IconButton aria-label="delete" disabled={currentPage === totalPages} onClick={goToNextPage} color="primary">
+        <ArrowForward />
+      </IconButton>
+        
+        
+      
+      </div>
 
 </Row>
 

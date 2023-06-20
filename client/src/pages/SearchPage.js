@@ -31,9 +31,32 @@ function SearchPage() {
     });
 
     // drop down
+
     const options = ['watched', 'watchlist', 'future'];
     const options2 = ['Action', 'Adventure', 'Animation','Comedy','Romance'];
     const options3 = ['2023', '2022', '2021','2020', '2019', '2018','2017', '2016', '2015','2014', '2013', '2012'];
+
+    // const options = [{ label: 'watched'},
+    //                  {label: 'watchlist'},
+    //                 {label: 'future'} ];
+
+    // const options2 = [{ label: 'Action'},
+    //                  {label: 'Adventure'},
+    //                  {label: 'Animation'},
+    //                  {label: 'Comedy'},
+    //                  {label: 'Crime'},
+    //                  {label: 'Drama'},
+    //                  {label: 'Horror'},
+    //                 {label: 'Romance'} ];
+
+    // const options3 = [{ label: '2023'},
+    //                 {label: '2022'},
+    //                 {label: '2021'},
+    //                 {label: '2020'},
+    //                 {label: '2019'},
+    //                 {label: '2018'},
+    //                 {label: '2017'},
+    //                {label: '2016'} ];
 
     const handleSelect = (e) => {
         setSelectedValue(e.target.value);

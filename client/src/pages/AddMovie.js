@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
-import { Button, Container, Form, Row } from 'react-bootstrap'
+import {Container, Form, Row } from 'react-bootstrap'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 function AddMovie() {
 
@@ -21,7 +24,7 @@ function AddMovie() {
     e.preventDefault();
 
     try{
-      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/AddMovie`, {
+      await axios.post("http://localhost:8000/AddMovie", {
         letter,name,year,production,category,poster,description,wstatus,myrank
       })
       .then(res=>{
@@ -204,58 +207,45 @@ function AddMovie() {
 
       </Form> */}
 
+      <form>
 
-    <form>
-      <input
-        type="text"
-        onChange={(e) => setLetter(e.target.value)}
-        placeholder="letter"
-      />
-      <input
-        type="text"
-        onChange={(e) => setName(e.target.value)}
-        placeholder="name"
-      />
-      <input
-        type="text"
-        onChange={(e) => setYear(e.target.value)}
-        placeholder="year"
-      />
-      <input
-        type="text"
-        onChange={(e) => setProduction(e.target.value)}
-        placeholder="Production"
-      />
-      <input
-        type="text"
-        onChange={(e) => setCategory(e.target.value)}
-        placeholder="Category"
-      />
-      <input
-        type="text"
-        onChange={(e) => setPoster(e.target.value)}
-        placeholder="Poster"
-      />
-      <input
-        type="text"
-        onChange={(e) => setDescrip(e.target.value)}
-        placeholder="Description"
-      />
-      <input
-        type="text"
-        onChange={(e) => setWStatus(e.target.value)}
-        placeholder="Watch Status"
-      />
-      <input
-        type="text"
-        onChange={(e) => setMyrank(e.target.value)}
-        placeholder="My Rank"
-      />
+    <Box
+      component="form"
+      sx={{
+        '& > :not(style)' : {m:1, width: '25ch'},
+      }}
+      noValidate
+      autoComplete='off'
+      style={{marginLeft:'400px', justifyContent:'center'}}
+    >
 
-      <input type="submit" onClick={submit} />
-      <input type="submit"value='update' onClick={submit} />
+      <div><TextField label="Letter" variant='filled' color="success" focused style={{width:'400px',fontSize:'30px'}} onChange={(e) => setLetter(e.target.value)}/></div>
+
+      <div><TextField label="Name" variant='filled' color="success" focused style={{width:'400px',fontSize:'30px'}} onChange={(e) => setName(e.target.value)}/></div>
+
+      <div><TextField label="Year" variant='filled' color="success" focused  style={{width:'400px',fontSize:'30px'}} onChange={(e) => setYear(e.target.value)}/></div>
+
+      <div><TextField label="Production" variant='filled' color="success" focused style={{width:'400px',fontSize:'30px'}} onChange={(e) => setProduction(e.target.value)}/></div>
+
+      <div><TextField label="Category" variant='filled' color="success" focused style={{width:'400px',fontSize:'30px'}} onChange={(e) => setCategory(e.target.value)}/></div>
+
+      <div><TextField label="Poster" variant='filled' color="success" focused style={{width:'400px',fontSize:'30px'}} onChange={(e) => setPoster(e.target.value)}/></div>
+
+      <div><TextField label="Description" variant='filled' color="success" style={{width:'400px',fontSize:'30px'}} focused onChange={(e) => setPoster(e.target.value)}/></div>
+
+      <div><TextField label="Watch Status" variant='filled' color="success" style={{width:'400px',fontSize:'30px'}} focused onChange={(e) => setWStatus(e.target.value)}/></div>
+
+      <div><TextField label="My Rank" variant='filled' color="success" style={{width:'400px',fontSize:'30px'}} focused onChange={(e) => setMyrank(e.target.value)}/></div>
+
+
+      <div>
+      <Button variant="contained" color="success" onClick={submit}>
+        SUBMIT
+      </Button>
+      </div>
+
+    </Box>
     </form>
-
     </div>
   )
 }

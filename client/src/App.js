@@ -11,6 +11,7 @@ import UpdatePage from './pages/UpdatePage'
 import AddTvSeries from './pages/AddTvSeries'
 import TVSeries from './pages/TVSeries'
 import Blob from './components/Blob'
+import ImageButtonCon from './components/ImageButtonCon'
 
 function App() {
   return (
