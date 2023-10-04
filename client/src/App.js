@@ -5,6 +5,7 @@ import {BrowserRouter,Route, Routes} from 'react-router-dom'
 import NavBar from "./components/NavBar";
 import AddMovie from "./pages/AddMovie";
 import SearchBar from "./components/SearchBar";
+import SearchTvBar from "./components/SearchTvBar";
 import SearchPage from "./pages/SearchPage";
 import UpdateMovie from './pages/UpdateMovie'
 import UpdatePage from './pages/UpdatePage'
@@ -42,6 +43,7 @@ function App() {
         <Route exact path="/AddTvSeries" element={<AddTvSeries/>} />
         <Route exact path ="/TVSeries" element={<TVSeries/>} />
         <Route exact path = "/Blob" element={<Blob/>} />
+        <Route exact path = '/SearchTvBar' element = {<SearchTvBar/>}/>
       </Routes>
       </BrowserRouter>
       </div>

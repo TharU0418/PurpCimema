@@ -46,7 +46,7 @@ function Movie() {
   //
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 20;
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
   const goToNextPage = () => {
@@ -60,8 +60,15 @@ function Movie() {
   return (
     <div className='Movie-Page'>
 
-      <SearchBar />
 
+    <Row style={{
+      marginTop: '40px',
+      margin:'0',
+      textAlign: 'center',
+      justifyContent:'center',
+    }}>
+      <SearchBar />
+      </Row>
       <Container style={{
         display:'flex',
         flexDirection:'row',
@@ -70,6 +77,7 @@ function Movie() {
       }}>
 
         <Row>
+       
       
       {data
       .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)

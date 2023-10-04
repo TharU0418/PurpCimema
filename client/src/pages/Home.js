@@ -22,8 +22,8 @@ function Home() {
     
       const fetchData = async () => {
         try{
-          //const response = await axios.get("http://localhost:8000/AddMovie");
-          const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/AddMovie`);
+          const response = await axios.get("http://localhost:8000/AddMovie");
+          //const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/AddMovie`);
           console.log(response.data)
           setData(response.data);
         }catch(error){
@@ -146,6 +146,10 @@ const images = [
 
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage1, setCurrentPage1] = useState(1);
+  const [currentPage2, setCurrentPage2] = useState(1);
+  const [currentPage3, setCurrentPage3] = useState(1);
+  const [currentPage4, setCurrentPage4] = useState(1);
   const itemsPerPage = 4;
   const totalPages = Math.ceil(data.length / itemsPerPage);
   
@@ -155,6 +159,38 @@ const images = [
   
   const goToPreviousPage = () => {
     setCurrentPage(prevPage => prevPage - 1);
+  };
+
+  const goToNextPage1 = () => {
+    setCurrentPage1(prevPage => prevPage + 1);
+  };
+  
+  const goToPreviousPage1 = () => {
+    setCurrentPage1(prevPage => prevPage - 1);
+  };
+
+  const goToNextPage2 = () => {
+    setCurrentPage2(prevPage => prevPage + 1);
+  };
+  
+  const goToPreviousPage2 = () => {
+    setCurrentPage2(prevPage => prevPage - 1);
+  };
+
+  const goToNextPage3 = () => {
+    setCurrentPage3(prevPage => prevPage + 1);
+  };
+  
+  const goToPreviousPage3 = () => {
+    setCurrentPage3(prevPage => prevPage - 1);
+  };
+
+  const goToNextPage4 = () => {
+    setCurrentPage4(prevPage => prevPage + 1);
+  };
+  
+  const goToPreviousPage4 = () => {
+    setCurrentPage4(prevPage => prevPage - 1);
   };
   
 
@@ -220,21 +256,25 @@ const images = [
                     ))}
                 </Col>
                 <div>
-                    <button disabled={currentPage === 1} onClick={goToPreviousPage}>Previous</button>
+                    <button disabled={currentPage === 1} onClick={goToPreviousPage} style={{border:'none'}}>
+                      <img width="32" height="32" src="https://img.icons8.com/laces/64/7950F2/circled-chevron-left.png" alt="circled-chevron-left"/>
+                    </button>
+                    
                     <span>{currentPage}</span>
-                    <button disabled={currentPage === totalPages} onClick={goToNextPage}>Next</button>
+                    <button disabled={currentPage === totalPages} onClick={goToNextPage} style={{border:'none'}}>
+                    <img width="32" height="32" src="https://img.icons8.com/laces/64/7950F2/circled-chevron-right.png" alt="circled-chevron-right"/>
+                    </button>
+                    
                 </div>
             </Row>
             
-                <Row style={{
-                    marginBottom:'40px'
-                }}>
+                <Row style={{marginBottom:'40px'}}>
                     <h4 style={{backgroundColor:'black', color:"white", width:'100%', height:'10%', padding:"10px", textAlign:'center'}} ref={sectionNet}>Nteflix</h4>
-                    <Col style={{
-                        display:'flex'
-                    }}>
-                            {data.map(item => {
-                                if (item.production === 'Netflix') {
+                    <Col style={{display:'flex'}}>
+                            {data
+                            .filter(item => item.production === 'Netflix')
+                            .slice((currentPage1 - 1) * itemsPerPage, currentPage1 * itemsPerPage)
+                            .map(item => {
                                 return (
                                     <div className="poster-home" style={{ backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
                                     <React.Fragment key={item.id}>
@@ -245,11 +285,18 @@ const images = [
                                     </React.Fragment>
                                     </div>
                                 );
-                                } else {
-                                return null; // or any other fallback if you don't want to render anything
-                                }
+                              
                             })}
                     </Col>
+                    <div>
+                    <button disabled={currentPage1 === 1} onClick={goToPreviousPage1} style={{border:'none'}}>
+                    <img width="32" height="32" src="https://img.icons8.com/laces/64/7950F2/circled-chevron-left.png" alt="circled-chevron-left"/>
+                    </button>
+                    <span>{currentPage1}</span>
+                    <button disabled={currentPage1 === totalPages} onClick={goToNextPage1} style={{border:'none'}}>
+                    <img width="32" height="32" src="https://img.icons8.com/laces/64/7950F2/circled-chevron-right.png" alt="circled-chevron-right"/>
+                    </button>
+                </div>
                 </Row>
                 <Row style={{
                     marginBottom:'40px'
@@ -258,8 +305,10 @@ const images = [
                     <Col style={{
                         display:'flex'
                     }}>
-                            {data.map(item => {
-                                if (item.production === 'Amozen Prime') {
+                            {data
+                            .filter(item => item.production === 'Amozen Prime')
+                            .slice((currentPage2 - 1) * itemsPerPage, currentPage2 * itemsPerPage)
+                            .map(item => {
                                 return (
                                     <div className="poster-home" style={{ backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
 
@@ -271,12 +320,19 @@ const images = [
                                     </React.Fragment>
                                     </div>
                                 );
-                                } else {
-                                return null; // or any other fallback if you don't want to render anything
-                                }
+                                
                             })}
                         
                     </Col>
+                    <div>
+                    <button disabled={currentPage2 === 1} onClick={goToPreviousPage2} style={{border:'none'}}>
+                    <img width="32" height="32" src="https://img.icons8.com/laces/64/7950F2/circled-chevron-left.png" alt="circled-chevron-left"/>
+                    </button>
+                    <span>{currentPage2}</span>
+                    <button disabled={currentPage2 === totalPages} onClick={goToNextPage2} style={{border:'none'}}>
+                    <img width="32" height="32" src="https://img.icons8.com/laces/64/7950F2/circled-chevron-right.png" alt="circled-chevron-right"/>
+                    </button>
+                </div>
                 </Row>
                 <Row style={{
                     marginBottom:'40px'
@@ -285,8 +341,10 @@ const images = [
                     <Col style={{
                         display:'flex'
                     }}>
-                            {data.map(item => {
-                                if (item.production === 'Marvel') {
+                            {data
+                            .filter(item => item.production === 'Marvel')
+                            .slice((currentPage3 - 1) * itemsPerPage, currentPage3 * itemsPerPage) 
+                            .map(item => {
                                 return (
                                     <div className="poster-home" style={{ backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
 
@@ -298,12 +356,19 @@ const images = [
                                     </React.Fragment>
                                     </div>
                                 );
-                                } else {
-                                return null; // or any other fallback if you don't want to render anything
-                                }
+                           
                             })}
                         
                     </Col>
+                    <div>
+                    <button disabled={currentPage3 === 1} onClick={goToPreviousPage3} style={{border:'none'}}>
+                    <img width="32" height="32" src="https://img.icons8.com/laces/64/7950F2/circled-chevron-left.png" alt="circled-chevron-left"/>
+                    </button>
+                    <span>{currentPage3}</span>
+                    <button disabled={currentPage3 === totalPages} onClick={goToNextPage3} style={{border:'none'}}> 
+                    <img width="32" height="32" src="https://img.icons8.com/laces/64/7950F2/circled-chevron-right.png" alt="circled-chevron-right"/>
+                    </button>
+                </div>
                 </Row>
                 <Row style={{
                     marginBottom:'40px'
@@ -312,8 +377,10 @@ const images = [
                     <Col style={{
                         display:'flex'
                     }}>
-                            {data.map(item => {
-                                if (item.production === 'DC') {
+                            {data
+                            .filter(item => item.production === 'DC')
+                            .slice((currentPage4 - 1) * itemsPerPage, currentPage4 * itemsPerPage)        
+                            .map(item => {
                                 return (
                                     <div className="poster-home" style={{ backgroundColor: '#BE7DFF', textAlign: 'center', justifyContent: 'center' }}>
 
@@ -325,12 +392,18 @@ const images = [
                                     </React.Fragment>
                                     </div>
                                 );
-                                } else {
-                                return null; // or any other fallback if you don't want to render anything
-                                }
                             })}
                         
                     </Col>
+                    <div>
+                    <button disabled={currentPage4 === 1} onClick={goToPreviousPage4} style={{border:'none'}}>
+                    <img width="32" height="32" src="https://img.icons8.com/laces/64/7950F2/circled-chevron-left.png" alt="circled-chevron-left"/>
+                    </button>
+                    <span>{currentPage4}</span>
+                    <button disabled={currentPage4 === totalPages} onClick={goToNextPage4} style={{border:'none'}}> 
+                    <img width="32" height="32" src="https://img.icons8.com/laces/64/7950F2/circled-chevron-right.png" alt="circled-chevron-right"/>
+                    </button>
+                </div>
                 </Row>
             </Container>
         </div>

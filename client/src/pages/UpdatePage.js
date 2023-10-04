@@ -18,6 +18,9 @@ function UpdatePage() {
     const[wstatus, setWStatus] = useState('')
     const[myrank, setMyrank] = useState('')
 const[data, setData] = useState([])
+const[category, setcategory] = useState('')
+
+ 
     async function submit(e){
         e.preventDefault();
 
@@ -27,9 +30,11 @@ const[data, setData] = useState([])
             poster: poster,
             description:  description,
             wstatus: wstatus,
-            myrank: myrank 
+            myrank: myrank ,
+            category : category
+
         };
-            
+              
         try{
             await axios.put(`http://localhost:8000/AddPage/${id}`, updatedData)
             console.log("Updated Successfully.")
@@ -68,7 +73,7 @@ const[data, setData] = useState([])
             }}
             noValidate
             autoComplete="off"
-            style={{marginLeft:'400px', justifyContent:'center', backgroundColor:'purple',width:'40%', padding:'10px', opacity:0.8}}
+            style={{marginLeft:'400px', justifyContent:'center', backgroundColor:'white',width:'40%', padding:'10px', opacity:0.8}}
         >
 
       
@@ -79,8 +84,8 @@ const[data, setData] = useState([])
             <TextField
                 label="Poster"
                 variant="standard"
-                color="warning"
                 style={{width:'400px',fontSize:'30px'}}
+                color="warning"
                 focused
                 required
                 value={item.poster}
@@ -109,11 +114,27 @@ const[data, setData] = useState([])
         .filter(item => item._id === id)
       .map(item => (
             <TextField
+                label="Category"
+                variant="standard"
+                color="warning"
+                style={{width:'400px',fontSize:'30px'}}
+                focused
+                required
+                value={item.category}
+                onChange={(e) => setcategory(e.target.value)} 
+            />
+            ))} 
+        </div>
+        <div>
+        {data
+        .filter(item => item._id === id)
+      .map(item => (
+            <TextField
                 label="Watched Status"
                 variant="standard"
                 color="warning"
                 style={{width:'400px',fontSize:'30px'}}
-                value={item.wstatus}
+                //value={item.wstatus}
                 focused
                 required
                 onChange={(e) => setWStatus(e.target.value)} 

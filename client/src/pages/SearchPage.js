@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import SearchBar from '../components/SearchBar';
+import { Container, Row } from 'react-bootstrap';
 
 function SearchPage() {
 
@@ -16,47 +17,26 @@ function SearchPage() {
 
 
     // search
-    const handleSearch = (e => {
-        e.preventDefault();
+    // const handleSearch = (e => {
+    //     e.preventDefault();
 
-        axios.get('http://localhost:8000/AddMovie')
-        .then((response) => {
-            setResult(response.data);
+    //     axios.get('http://localhost:8000/AddMovie')
+    //     .then((response) => {
+    //         setResult(response.data);
            
-            console.log(results)
-        })
-        .catch((error) => {
-            console.error('Error searching: ', error)
-        });
-    });
+    //         console.log(results)
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error searching: ', error)
+    //     });
+    // });
 
     // drop down
 
     const options = ['watched', 'watchlist', 'future'];
-    const options2 = ['Action', 'Adventure', 'Animation','Comedy','Romance'];
-    const options3 = ['2023', '2022', '2021','2020', '2019', '2018','2017', '2016', '2015','2014', '2013', '2012'];
+    const options2 = ['Action', 'Adventure', 'Animation','Comedy','Romance', 'Sci-Fi'];
+    const options3 = ['2023', '2022', '2021','2020', '2019', '2018','2017', '2016', '2015','2014', '2013', '2012','2011','2010', '2009', '2008','2007', '2006', '2005'];
 
-    // const options = [{ label: 'watched'},
-    //                  {label: 'watchlist'},
-    //                 {label: 'future'} ];
-
-    // const options2 = [{ label: 'Action'},
-    //                  {label: 'Adventure'},
-    //                  {label: 'Animation'},
-    //                  {label: 'Comedy'},
-    //                  {label: 'Crime'},
-    //                  {label: 'Drama'},
-    //                  {label: 'Horror'},
-    //                 {label: 'Romance'} ];
-
-    // const options3 = [{ label: '2023'},
-    //                 {label: '2022'},
-    //                 {label: '2021'},
-    //                 {label: '2020'},
-    //                 {label: '2019'},
-    //                 {label: '2018'},
-    //                 {label: '2017'},
-    //                {label: '2016'} ];
 
     const handleSelect = (e) => {
         setSelectedValue(e.target.value);
@@ -88,7 +68,7 @@ function SearchPage() {
         <div className='search-page'>
             {/* search container bar */}
             <div className='search-container'>
-                <div className='search-bar'>
+                {/* <div className='search-bar'>
                 <form onSubmit={handleSearch}>
                     <input 
                         type="text"
@@ -98,7 +78,7 @@ function SearchPage() {
                     />
                     <button type="submit">🔍</button>
                 </form>
-                </div>
+                </div> */}
                 <form onSubmit={handleSelect}>
                     {/* Dropdown */}
                     <select value={selectedValue} onChange={handleSelect} className='dropdown'>
@@ -128,12 +108,20 @@ function SearchPage() {
 
             {/* search results */}
 
+            <Container style={{
+                display:'flex',
+                flexDirection:'column',
+                rowGap:'10px',
+                justifyContent: 'center'
+            }}>
+                <Row>
             {Array.isArray(dropresults) && dropresults.length > 0 ? (
+                
                 dropresults.map((item) => {
                     if (item.wstatus === selectedValue || item.category === selectedValue2 || item.year === selectedValue3) {
                     return (
                         <React.Fragment key={item.id}>
-                            <div className='search-movie-palet'>
+                            <div className='movie-palet'>
                                 <div className='search-top-side'>
                                     <div>{item.name}</div>
                                     <div>{item.year}</div>
@@ -156,11 +144,13 @@ function SearchPage() {
                     return null; // or any other fallback if you don't want to render anything
                     }
                 })
+                
             ) : (
                 <p>No results found.</p>
-            )}
-
-{Array.isArray(results) && results.length > 0 ? (
+            )} 
+</Row>
+            </Container>
+{/* {Array.isArray(results) && results.length > 0 ? (
           results.map((item) => {
             if (item.name === query) {
               return (
@@ -190,7 +180,7 @@ function SearchPage() {
           })
           ) : (
           <p>No results found.</p>
-          )}
+          )} */}
             
         </div>
     )

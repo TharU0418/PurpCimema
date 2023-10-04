@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Row } from 'react-bootstrap';
 
-function SearchBar() {
+function SearchTvBar() {
 
     const [query, setQuery] = useState('');
     const [results, setResult] = useState('');
@@ -11,7 +11,7 @@ function SearchBar() {
     const handleSearch = (e => {
         e.preventDefault();
 
-        axios.get('http://localhost:8000/AddMovie')
+        axios.get('http://localhost:8000/AddTvSeries')
         .then((response) => {
             setResult(response.data);
            
@@ -83,4 +83,4 @@ function SearchBar() {
   )
 }
 
-export default SearchBar
+export default SearchTvBar

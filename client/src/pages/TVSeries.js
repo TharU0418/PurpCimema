@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import SearchTvBar from "../components/SearchTvBar";
 
 function TVSeries(){
 
@@ -24,7 +25,14 @@ function TVSeries(){
 
     return(
         <div className="Movie-Page">
-
+<Row style={{
+      marginTop: '40px',
+      margin:'0',
+      textAlign: 'center',
+      justifyContent:'center',
+    }}>
+            <SearchTvBar/>
+            </Row>
             <Container style={{
                 display:'flex',
                 flexDirection:'column',

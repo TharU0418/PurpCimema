@@ -22,6 +22,7 @@ function AddMovie() {
 
   async function submit(e){
     e.preventDefault();
+    console.log('submit')
 
     try{
       await axios.post("http://localhost:8000/AddMovie", {

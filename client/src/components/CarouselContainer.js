@@ -29,6 +29,21 @@ function CarouselContainer() {
                 <h2>Hidden Strike </h2>
             </Carousel.Caption>
         </Carousel.Item>
+        <Carousel.Item interval={1000} >
+            <img className="d-block w-100" src="https://www.bollywoodhungama.com/wp-content/uploads/2020/08/WhatsApp-Image-2023-06-15-at-1.28.59-PM.jpeg
+" 
+              alt="Image One" style={{height: '40%'}}/>
+            <Carousel.Caption>
+                <h2>adipurush</h2>
+            </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item interval={1000} >
+            <img className="d-block w-100" src="https://images.hindustantimes.com/img/2022/02/21/1600x900/samantha_ruth_prabhu_1645417513887_1645417522208.png" 
+              alt="Image One" style={{height: '40%'}}/>
+            <Carousel.Caption>
+                <h2>Shaakuntalam </h2>
+            </Carousel.Caption>
+        </Carousel.Item>
     </Carousel>
 </div>
   )
