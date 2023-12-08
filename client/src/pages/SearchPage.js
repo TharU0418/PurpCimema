@@ -50,7 +50,7 @@ function SearchPage() {
 
         e.preventDefault();
 
-        axios.get('http://localhost:8000/AddMovie')
+        axios.get('https://purpnight-server.onrender.com/AddMovie')
         .then((response2) => {
             setDropResult(response2.data);
            

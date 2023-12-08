@@ -15,7 +15,7 @@ function TVSeries(){
     const fetchData = async () => {
 
         try{
-            const response = await axios.get("http://localhost:8000/AddTvSeries")
+            const response = await axios.get("https://purpnight-server.onrender.com/AddTvSeries")
             console.log(response.data)
             setData(response.data)
         }catch(error){

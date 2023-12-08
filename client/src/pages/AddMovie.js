@@ -25,7 +25,7 @@ function AddMovie() {
     console.log('submit')
 
     try{
-      await axios.post("http://localhost:8000/AddMovie", {
+      await axios.post("https://purpnight-server.onrender.com/AddMovie", {
         letter,name,year,production,category,poster,description,wstatus,myrank
       })
       .then(res=>{

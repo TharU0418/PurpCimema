@@ -36,7 +36,7 @@ const[category, setcategory] = useState('')
         };
               
         try{
-            await axios.put(`http://localhost:8000/AddPage/${id}`, updatedData)
+            await axios.put(`https://purpnight-server.onrender.com/AddPage/${id}`, updatedData)
             console.log("Updated Successfully.")
         }catch(error){
             console.log(error)

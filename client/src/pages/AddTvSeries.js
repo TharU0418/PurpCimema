@@ -20,7 +20,7 @@ function AddTvSeries() {
     e.preventDefault();
 
     try{
-        await axios.post("http://localhost:8000/AddTvSeries", {
+        await axios.post("https://purpnight-server.onrender.com/AddTvSeries", {
             letter,name,year,production,category,poster,description,wstatus,myrank
         })
         .then(res =>{

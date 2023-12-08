@@ -21,7 +21,7 @@ function EditMovie({ movieId }) {
   const[myrank, setMyrank] = useState('')
 
     useEffect(() => {
-        axios.get('http://localhost:8000/AddMovie${movieId}')
+        axios.get('https://purpnight-server.onrender.com${movieId}')
         .then((response) => setData(response.data))
         .catch((error) => console.log(error))
     }, [movieId])

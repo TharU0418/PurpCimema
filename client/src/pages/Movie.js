@@ -21,7 +21,7 @@ function Movie() {
 
   const fetchData = async () => {
     try{
-      const response = await axios.get('http://localhost:8000/AddMovie');
+      const response = await axios.get('https://purpnight-server.onrender.com/AddMovie');
       console.log(response.data)
       setData(response.data);
     }catch(error){
