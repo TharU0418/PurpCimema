@@ -7,6 +7,8 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended:true}))
 app.use(cors())
+const dotenv = require('dotenv').config()
+
 
 const ObjectId = require('mongodb').ObjectId; // Import ObjectId from MongoDB package
 

@@ -2,11 +2,22 @@ import { Container } from '@mui/material';
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function SearchBar() {
 
     const [query, setQuery] = useState('');
     const [results, setResult] = useState('');
+
+    const [selectedId, setSelectedId] = useState(null);
+
+    function handleButtonClick (item){
+      setSelectedId(item.id);
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
+    }
 
     const handleSearch = (e => {
         e.preventDefault();
@@ -62,7 +73,11 @@ function SearchBar() {
                               <div>{item.production}</div>
                               <div>{item.description}</div>
                               <div>{item.myrank}</div>
+                              <Link to={`/UpdatePage?id=${item._id}`} onClick={handleButtonClick}>
+              <i class="bi bi-pen" style={{marginLeft:'40px', backgroundColor:'white', borderRadius:'5px', padding:'5px'}}></i>
+              </Link>
                           </div>
+                          
                         </div>
                     </div>
                 </React.Fragment>

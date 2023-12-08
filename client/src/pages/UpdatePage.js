@@ -27,11 +27,11 @@ const[category, setcategory] = useState('')
         console.log(id)
 
         const updatedData = {
-            poster: poster,
-            description:  description,
-            wstatus: wstatus,
-            myrank: myrank ,
-            category : category
+            poster: poster || locations.poster,
+            description:  description || locations.description,
+            wstatus: wstatus || locations.wstatus,
+            myrank: myrank || locations.myrank,
+            category : category || locations.category
 
         };
               
@@ -88,7 +88,7 @@ const[category, setcategory] = useState('')
                 color="warning"
                 focused
                 required
-                value={item.poster}
+                placeholder={item.poster}
                 onChange={(e) => setPoster(e.target.value)} 
             />
             ))} 
@@ -104,7 +104,7 @@ const[category, setcategory] = useState('')
                 style={{width:'400px',fontSize:'30px'}}
                 focused
                 required
-                value={item.description}
+                placeholder={item.description}
                 onChange={(e) => setDescrip(e.target.value)} 
             />
             ))} 
@@ -120,7 +120,7 @@ const[category, setcategory] = useState('')
                 style={{width:'400px',fontSize:'30px'}}
                 focused
                 required
-                value={item.category}
+                placeholder={item.category}
                 onChange={(e) => setcategory(e.target.value)} 
             />
             ))} 
@@ -134,7 +134,7 @@ const[category, setcategory] = useState('')
                 variant="standard"
                 color="warning"
                 style={{width:'400px',fontSize:'30px'}}
-                //value={item.wstatus}
+                placeholder={item.wstatus}
                 focused
                 required
                 onChange={(e) => setWStatus(e.target.value)} 
