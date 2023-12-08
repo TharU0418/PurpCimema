@@ -1,7 +1,7 @@
 import Home from "./pages/Home";
 import Movie from "./pages/Movie";
 
-import {HashRouter,BrowserRouter,Route, Routes} from 'react-router-dom'
+import {BrowserRouter,Route, Routes} from 'react-router-dom'
 import NavBar from "./components/NavBar";
 import AddMovie from "./pages/AddMovie";
 import SearchBar from "./components/SearchBar";
@@ -13,7 +13,6 @@ import AddTvSeries from './pages/AddTvSeries'
 import TVSeries from './pages/TVSeries'
 import Blob from './components/Blob'
 import ImageButtonCon from './components/ImageButtonCon'
-import { Switch } from "@mui/material";
 
 function App() {
   return (
@@ -29,8 +28,7 @@ function App() {
       <Blob/>
       </div>
       <div className="content">
-     <Switch>
-     <BrowserRouter>
+      <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/" element={<Home/>}/>
@@ -48,7 +46,6 @@ function App() {
         <Route exact path = '/SearchTvBar' element = {<SearchTvBar/>}/>
       </Routes>
       </BrowserRouter>
-     </Switch>
       </div>
     </div>
   );
