@@ -4,8 +4,7 @@ const {collection,tvdata} = require("./mongo")
 const cors = require("cors")
 const { default: mongoose } = require("mongoose")
 const app = express()
-//app.use(express.json())
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.json())
 app.use(express.urlencoded({ extended:true}))
 app.use(cors())
 const dotenv = require('dotenv').config()
@@ -13,11 +12,7 @@ const dotenv = require('dotenv').config()
 
 const ObjectId = require('mongodb').ObjectId; // Import ObjectId from MongoDB package
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
 
-  
 app.post('/AddMovie', async(req, res) => {
     const{letter,name,year,production,category,poster,description,wstatus,myrank} = req.body
 
