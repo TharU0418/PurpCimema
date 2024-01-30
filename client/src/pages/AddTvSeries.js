@@ -18,9 +18,10 @@ function AddTvSeries() {
 
   async function submit(e){
     e.preventDefault();
+    console.log('mongo', `${process.env.REACT_APP_BACKEND_URL}`)
 
     try{
-        await axios.post("https://purpnight-server.onrender.com/AddTvSeries", {
+        await axios.post(`https://purpnight-server.onrender.com/AddMovie`, {
             letter,name,year,production,category,poster,description,wstatus,myrank
         })
         .then(res =>{

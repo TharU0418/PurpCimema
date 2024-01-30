@@ -36,7 +36,7 @@ const[category, setcategory] = useState('')
         };
               
         try{
-            await axios.put(`http://localhost:8000/AddPage/${id}`, updatedData)
+            await axios.put(`https://purpnight-server.onrender.com/AddPage/${id}`, updatedData)
             console.log("Updated Successfully.")
         }catch(error){
             console.log(error)
@@ -51,7 +51,7 @@ const[category, setcategory] = useState('')
 
     const fetchData = async () => {
     try{
-      const response = await axios.get('http://localhost:8000/AddMovie');
+      const response = await axios.get('https://purpnight-server.onrender.com/AddMovie');
       console.log(response.data)
       setData(response.data);
     }catch(error){
