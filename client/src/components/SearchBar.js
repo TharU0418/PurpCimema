@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import SearchIcon from '@mui/icons-material/Search';
 
 function SearchBar() {
 
@@ -42,7 +43,7 @@ function SearchBar() {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="search"
             />
-            <button type="submit">🔍</button>
+            <button type="submit"><SearchIcon style={{color:'white'}}/></button>
         </form>
 
 
@@ -56,7 +57,7 @@ function SearchBar() {
                 <Row>
         {Array.isArray(results) && results.length > 0 ? (
           results.map((item) => {
-            if (item.name === query) {
+            if (item.name.includes(query)) {
               return (
                 <React.Fragment key={item.id}>
                   <div className='movie-palet'>
@@ -87,7 +88,7 @@ function SearchBar() {
             }
           })
           ) : (
-          <p>No results found.</p>
+          <p></p>
           )}
    
    </Row>

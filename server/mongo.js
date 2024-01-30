@@ -1,13 +1,17 @@
 const mongoose = require("mongoose")
+require('dotenv').config();
+
 
 //mongoose.connect("mongodb://localhost:27017/react-login-tut")
-mongoose.connect("mongodb+srv://purpNtharu:5z8qsgS3fzuyMIva@cluster0.dwo2kyv.mongodb.net/?retryWrites=true&w=majority")
+//mongoose.connect("mongodb+srv://purpNtharu:5z8qsgS3fzuyMIva@cluster0.dwo2kyv.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect(process.env.MONGODB_URL)
 .then(()=>{
     console.log("mongodb connected")
 })
-.catch(() => {
-    console.log("failed.")
+.catch((error) => {
+    console.log("failed.", error)
 })
+
 
 const newSchema = new mongoose.Schema({
     letter:{

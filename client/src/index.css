@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
 *{
   margin: 0;
   box-sizing: border-box;
@@ -136,22 +138,24 @@ body .react-bubbly-transitions__bubbly-link.active {
   margin-left: 20px;
 }
 .search-bar input{
-  border-radius: 10px;
-  width: 600px;
-  height:32px;
+  border-radius: 8px;
+  width: 60%;
+  height:50px;
   border: 1px solid black;
   text-align: center;
   margin-right: 10px;
   font-size: 24px;
   color: black;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 20px;
 
 }
 .search-bar button{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(41, 3, 52);
   padding: 4px;
-  border-radius: 50%;
+  border-radius: 30%;
   font-size: 28px;
+  width: 42px;
 }
 .dropdown {
     /* Add desired styling properties */
@@ -287,3 +291,23 @@ body .react-bubbly-transitions__bubbly-link.active {
   z-index: 1;
 }
 
+@media (max-width: 425px) {
+  .search-page .movie-palet{
+    width: 80%;
+  }
+  .Movie-Page .movie-palet{
+    width: 80%;
+  }
+}
+
+@media (max-width: 320px) {
+  .search-page .movie-palet{
+    width: 100%;
+    margin-left: 20px;
+  }
+  .search-page .search-container{
+    width: 360px;
+    margin-left: 1px;
+    padding: 10px;
+  }
+}

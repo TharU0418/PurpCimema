@@ -36,7 +36,7 @@ const[category, setcategory] = useState('')
         };
               
         try{
-            await axios.put(`https://purpnight-server.onrender.com/AddPage/${id}`, updatedData)
+            await axios.put(`http://localhost:8000/AddPage/${id}`, updatedData)
             console.log("Updated Successfully.")
         }catch(error){
             console.log(error)
@@ -61,20 +61,16 @@ const[category, setcategory] = useState('')
 
   return (
     <div>
-        UpdatePage
-        <p>{id}</p>
-
         <form>
-
-        <Box
-            component="form"
-            sx={{
-                '& > :not(style)': { m: 1, width: '25ch' },
-            }}
-            noValidate
-            autoComplete="off"
-            style={{marginLeft:'400px', justifyContent:'center', backgroundColor:'white',width:'40%', padding:'10px', opacity:0.8}}
-        >
+      <Box
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+        style={{position:'fixed', top:'26%', left:'20%', justifyContent:'center', backgroundColor:'rgb(255, 255, 60)',width:'60%', padding:'10px', opacity:0.8}}
+      >
 
       
         <div>
@@ -84,7 +80,7 @@ const[category, setcategory] = useState('')
             <TextField
                 label="Poster"
                 variant="standard"
-                style={{width:'400px',fontSize:'30px'}}
+                style={{width:'800px',fontSize:'30px'}}
                 color="warning"
                 focused
                 required
@@ -101,7 +97,7 @@ const[category, setcategory] = useState('')
                 label="Description"
                 variant="standard"
                 color="warning"
-                style={{width:'400px',fontSize:'30px'}}
+                style={{width:'800px',fontSize:'30px'}}
                 focused
                 required
                 placeholder={item.description}
@@ -117,7 +113,7 @@ const[category, setcategory] = useState('')
                 label="Category"
                 variant="standard"
                 color="warning"
-                style={{width:'400px',fontSize:'30px'}}
+                style={{width:'800px',fontSize:'30px'}}
                 focused
                 required
                 placeholder={item.category}
@@ -133,7 +129,7 @@ const[category, setcategory] = useState('')
                 label="Watched Status"
                 variant="standard"
                 color="warning"
-                style={{width:'400px',fontSize:'30px'}}
+                style={{width:'800px',fontSize:'30px'}}
                 placeholder={item.wstatus}
                 focused
                 required
@@ -149,7 +145,7 @@ const[category, setcategory] = useState('')
                 label="My Rank"
                 variant="standard"
                 color="warning"
-                style={{width:'400px',fontSize:'30px'}}
+                style={{width:'800px',fontSize:'30px'}}
                 value={item.myrank}
                 focused
                 required

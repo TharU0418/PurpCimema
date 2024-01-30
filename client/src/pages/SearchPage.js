@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import SearchBar from '../components/SearchBar';
 import { Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function SearchPage() {
 
@@ -34,8 +35,8 @@ function SearchPage() {
     // drop down
 
     const options = ['watched', 'watchlist', 'future'];
-    const options2 = ['Action', 'Adventure', 'Animation','Comedy','Romance', 'Sci-Fi'];
-    const options3 = ['2023', '2022', '2021','2020', '2019', '2018','2017', '2016', '2015','2014', '2013', '2012','2011','2010', '2009', '2008','2007', '2006', '2005'];
+    const options2 = ['Action', 'Adventure', 'Animation','Comedy','Drama', 'Fantasy', 'Horror', 'Musical', 'Romance', 'Sci-Fi'];
+    const options3 = ['2024','2023', '2022', '2021','2020', '2019', '2018','2017', '2016', '2015','2014', '2013', '2012','2011','2010', '2009', '2008','2007', '2006', '2005','2004','2003', '2002', '2001', '2000'];
 
 
     const handleSelect = (e) => {
@@ -50,7 +51,7 @@ function SearchPage() {
 
         e.preventDefault();
 
-        axios.get('https://purpnight-server.onrender.com/AddMovie')
+        axios.get('http://localhost:8000/AddMovie')
         .then((response2) => {
             setDropResult(response2.data);
            
@@ -79,7 +80,7 @@ function SearchPage() {
                     <button type="submit">🔍</button>
                 </form>
                 </div> */}
-                <form onSubmit={handleSelect}>
+                <form>
                     {/* Dropdown */}
                     <select value={selectedValue} onChange={handleSelect} className='dropdown'>
                         <option value="">Watch</option>
@@ -131,10 +132,14 @@ function SearchPage() {
                                     <img src={item.poster} alt={item.name} />
                                     </div>
                                     <div className='search-description'>
-                                        <div>{item.category}</div>
-                                        <div>{item.production}</div>
-                                        <div>{item.description}</div>
-                                        <div>{item.myrank}</div>
+                                        <div>Movie Category : {item.category}</div>
+                                        <div>Movie Production :{item.production}</div>
+                                        <div>Movie Description :{item.description}</div>
+                                        <div>Movie Rank :{item.myrank}</div>
+                                        
+                                        <Link to={`/UpdatePage?id=${item._id}`} onClick={'handleButtonClick'} style={{marginTop:'40px'}}>
+                                            <i class="bi bi-pen" style={{marginLeft:'40px', backgroundColor:'white', borderRadius:'5px', padding:'5px'}}></i>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
