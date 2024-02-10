@@ -233,7 +233,7 @@ function AddMovie() {
 
       <div><TextField label="Poster" variant='filled' color="success" focused style={{width:'400px',fontSize:'30px'}} onChange={(e) => setPoster(e.target.value)}/></div>
 
-      <div><TextField label="Description" variant='filled' color="success" style={{width:'400px',fontSize:'30px'}} focused onChange={(e) => setPoster(e.target.value)}/></div>
+      <div><TextField label="Description" variant='filled' color="success" style={{width:'400px',fontSize:'30px'}} focused onChange={(e) => setDescrip(e.target.value)}/></div>
 
       <div><TextField label="Watch Status" variant='filled' color="success" style={{width:'400px',fontSize:'30px'}} focused onChange={(e) => setWStatus(e.target.value)}/></div>
 

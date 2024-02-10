@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchBar from '../components/SearchBar';
 import { Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -49,9 +49,13 @@ function SearchPage() {
         setSelectedValue3(e.target.value);
         console.log(e.target.value)
 
-        e.preventDefault();
+        
+      };
 
-        axios.get('http://localhost:8000/AddMovie')
+      useEffect(() => {
+
+        //axios.get('https://purpnight-server.onrender.com/AddMovie')
+        axios.get('https://purpnight-server.onrender.com/AddMovie')
         .then((response2) => {
             setDropResult(response2.data);
            
@@ -61,10 +65,11 @@ function SearchPage() {
             console.error('Error searching: ', error)
         });
 
-      };
+      }, [])
+
 
       
-
+console.log('dropresults', dropresults)
     return(
         <div className='search-page'>
             {/* search container bar */}
