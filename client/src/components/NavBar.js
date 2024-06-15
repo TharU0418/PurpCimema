@@ -3,7 +3,7 @@ import {Nav, Navbar, Container, NavDropdown} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';  
 import logo from '../images/logo.png'
 import {Link} from 'react-router-dom'
-
+import AvTimerIcon from '@mui/icons-material/AvTimer';
 function NavBar() {
   
     const [show, setShow] = useState(false);
@@ -31,6 +31,7 @@ function NavBar() {
                         <Nav.Link style={{color:"black"}}>RANK</Nav.Link>
                         <Nav.Link href='Movie' style={{color:"black"}}>MOVIE</Nav.Link>
                         <Nav.Link href='TVSeries' style={{color:"black"}}>TV SERIES</Nav.Link>
+                        <Nav.Link href='Count' style={{color:'white', fontSize:'24px'}}><AvTimerIcon/></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

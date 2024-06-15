@@ -13,6 +13,7 @@ import AddTvSeries from './pages/AddTvSeries'
 import TVSeries from './pages/TVSeries'
 import Blob from './components/Blob'
 import ImageButtonCon from './components/ImageButtonCon'
+import Count from "./pages/Count";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route exact path ="/TVSeries" element={<TVSeries/>} />
         <Route exact path = "/Blob" element={<Blob/>} />
         <Route exact path = '/SearchTvBar' element = {<SearchTvBar/>}/>
+        <Route exact path = '/Count' element={<Count/>}/>
       </Routes>
       </BrowserRouter>
       </div>
